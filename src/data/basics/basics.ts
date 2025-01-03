@@ -1,7 +1,8 @@
 import { Category } from 'src/types'
 import { colors } from './colors'
+import { family } from './family'
 
 export const basics: Category = {
-  name: 'basics',
-  subCategories: [colors],
+  name: 'Basics',
+  subCategories: [colors, family],
 }

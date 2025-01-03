@@ -46,8 +46,46 @@
   justify-items: center;
 }
 
-.shuffle-button {
-  margin-top: 20px;
+.cards-6 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.cards-8 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.cards-12 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.shuffle-container {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.shuffle-button {
+  display: flex;
+  justify-content: center;
+}
+
+.speak-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.language-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: #777777;
 }

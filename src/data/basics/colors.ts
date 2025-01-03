@@ -1,7 +1,7 @@
 import { SubCategory } from 'src/types'
 
 export const colors: SubCategory = {
-  name: 'colors',
+  name: 'Colors',
   translations: [
     {
       en: 'beige',

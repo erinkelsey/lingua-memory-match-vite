@@ -1,44 +1,52 @@
 import { useState, useEffect } from 'react'
-import { Card, Button, Title } from '@mantine/core'
+import { Card, Button, Title, ActionIcon } from '@mantine/core'
+import { MdVolumeUp } from 'react-icons/md'
 
-import { dictionary } from 'src/data/dictionary'
-import { shuffleArray } from 'src/utils'
+import { shuffleArray, speak } from 'src/utils'
+import { Translation } from '~/types'
 
 import './game.css'
 
 interface GameProps {
-  num_words?: number
-  user_language?: string
-  translation_language?: string
+  translations?: Translation[]
+  numberOfCards?: number
+  userLanguage?: string
+  translationLanguage?: string
+}
+
+interface Card {
+  text: string
+  translation: string
+  language: string
 }
 
 export const Game = ({
-  num_words = 3,
-  user_language = 'en',
-  translation_language = 'hu',
+  translations = [],
+  numberOfCards = 6,
+  userLanguage = 'en',
+  translationLanguage = 'hu',
 }: GameProps) => {
   const [flipped, setFlipped] = useState<boolean[]>([])
-  const [shuffledTranslations, setShuffledTranslations] = useState<
-    { text: string; translation: string }[]
-  >([])
+  const [shuffledTranslations, setShuffledTranslations] = useState<Card[]>([])
   const [flippedIndices, setFlippedIndices] = useState<number[]>([])
   const [matchedIndices, setMatchedIndices] = useState<boolean[]>([])
   const [numMatched, setNumMatched] = useState(0)
   const [gameOver, setGameOver] = useState(false)
+  const numWords = numberOfCards / 2
 
   const initializeGame = () => {
-    const allShuffledTranslations = shuffleArray(
-      dictionary[0].subCategories[0].translations
-    )
-    const translations = allShuffledTranslations.slice(0, num_words)
-    const cards = translations.flatMap((translation) => [
+    const allShuffledTranslations = shuffleArray(translations)
+    const selectedTranslations = allShuffledTranslations.slice(0, numWords)
+    const cards = selectedTranslations.flatMap((translation) => [
       {
-        text: translation[user_language],
-        translation: translation[translation_language],
+        text: translation[userLanguage],
+        translation: translation[translationLanguage],
+        language: userLanguage,
       },
       {
-        text: translation[translation_language],
-        translation: translation[user_language],
+        text: translation[translationLanguage],
+        translation: translation[userLanguage],
+        language: translationLanguage,
       },
     ])
     setFlipped(Array(cards.length).fill(false))
@@ -52,6 +60,10 @@ export const Game = ({
   useEffect(() => {
     initializeGame()
   }, [])
+
+  useEffect(() => {
+    initializeGame()
+  }, [numberOfCards])
 
   const shuffle = () => {
     setFlippedIndices([])
@@ -67,7 +79,7 @@ export const Game = ({
     if (
       flippedIndices.length === 2 ||
       matchedIndices[index] ||
-      numMatched == num_words
+      numMatched == numWords
     )
       return
 
@@ -99,7 +111,7 @@ export const Game = ({
           setFlippedIndices([])
           setNumMatched(numMatched + 1)
 
-          if (numMatched + 1 === num_words) {
+          if (numMatched + 1 === numWords) {
             setGameOver(true)
           }
         }, 500)
@@ -116,15 +128,19 @@ export const Game = ({
     }
   }
 
+  const handleSpeakClick = (event: React.MouseEvent, item: Card) => {
+    event.stopPropagation()
+    speak(item.text, item.language)
+  }
+
   return (
     <div>
-      <Title order={2}>Basics: Colors</Title>
       {gameOver ? (
         <Title order={3}>Congratulations! You Won 🎉</Title>
       ) : (
         <Title order={3}>Match the translations</Title>
       )}
-      <div className='card-container'>
+      <div className={`card-container cards-${numberOfCards}`}>
         {shuffledTranslations.map((item, index) => (
           <div
             key={index}
@@ -153,20 +169,30 @@ export const Game = ({
                 }`}
               >
                 <p>{item.text}</p>
+                <ActionIcon
+                  className='speak-button'
+                  variant='outline'
+                  color='green'
+                  onClick={(event) => handleSpeakClick(event, item)}
+                >
+                  <MdVolumeUp />
+                </ActionIcon>
+                <div className='language-label'>{item.language}</div>
               </Card>
             </div>
           </div>
         ))}
       </div>
-      <Button
-        fullWidth
-        maw={400}
-        onClick={shuffle}
-        className='shuffle-button'
-        color='green'
-      >
-        Shuffle
-      </Button>
+      <div className='shuffle-container'>
+        <Button
+          miw={400}
+          onClick={shuffle}
+          className='shuffle-button'
+          color='green'
+        >
+          Shuffle
+        </Button>
+      </div>
     </div>
   )
 }

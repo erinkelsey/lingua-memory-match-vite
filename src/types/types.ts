@@ -1,6 +1,7 @@
 export interface Translation {
   en: string
   hu: string | undefined | null
+  image?: string
 }
 
 export interface SubCategory {

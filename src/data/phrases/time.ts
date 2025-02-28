@@ -4,8 +4,8 @@ export const time: SubCategory = {
   name: 'Time',
   translations: [
     {
-      en: 'Hány óra van most?',
-      hu: 'What time is it now?',
+      en: 'What time is it now?',
+      hu: 'Hány óra van most?',
     },
   ],
 }

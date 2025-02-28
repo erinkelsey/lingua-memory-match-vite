@@ -84,6 +84,10 @@ export const time: SubCategory = {
       hu: 'hét',
     },
     {
+      en: 'weekend',
+      hu: 'hétvége',
+    },
+    {
       en: 'year',
       hu: 'év',
     },

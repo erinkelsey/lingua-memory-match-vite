@@ -20,7 +20,7 @@ export const Categories = ({ setSelectedCategory }: CategoriesProps) => {
           className='category-card'
           onClick={() => setSelectedCategory(dictionary[index])}
         >
-          <h2>{category.name}</h2>
+          <div className='category-title'>{category.name}</div>
         </Card>
       ))}
     </div>

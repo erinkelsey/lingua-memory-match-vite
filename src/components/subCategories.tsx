@@ -25,7 +25,7 @@ export const SubCategories = ({
           className='category-card'
           onClick={() => setSelectedSubCategory(subCategories[index])}
         >
-          <h2>{subCategory.name}</h2>
+          <div className='category-title'>{subCategory.name}</div>
         </Card>
       ))}
     </div>

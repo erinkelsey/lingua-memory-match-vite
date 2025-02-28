@@ -128,7 +128,7 @@ export const Game = ({
     }
   }
 
-  const handleSpeakClick = (event: React.MouseEvent, item: Card) => {
+  const handleSpeak = async (event: React.MouseEvent, item: Card) => {
     event.stopPropagation()
     speak(item.text, item.language)
   }
@@ -173,7 +173,7 @@ export const Game = ({
                   className='speak-button'
                   variant='outline'
                   color='green'
-                  onClick={(event) => handleSpeakClick(event, item)}
+                  onClick={(event) => handleSpeak(event, item)}
                 >
                   <MdVolumeUp />
                 </ActionIcon>
@@ -185,7 +185,7 @@ export const Game = ({
       </div>
       <div className='shuffle-container'>
         <Button
-          miw={400}
+          miw={300}
           onClick={shuffle}
           className='shuffle-button'
           color='green'

@@ -71,7 +71,12 @@
   }
 }
 
-/* @media (max-width: 480px) {} */
+@media (max-width: 480px) {
+  .card-container {
+    gap: 8px;
+    margin: 4px;
+  }
+}
 
 .shuffle-container {
   display: flex;

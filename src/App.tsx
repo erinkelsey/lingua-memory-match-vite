@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { AppShell, Button } from '@mantine/core'
+import { AppShell } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 
 import { Categories, Game, SubCategories, Header, Navbar } from './components'

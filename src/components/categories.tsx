@@ -16,7 +16,7 @@ export const Categories = ({ setSelectedCategory }: CategoriesProps) => {
         <Card
           key={index}
           shadow='xs'
-          padding='xl'
+          padding='0px'
           className='category-card'
           onClick={() => setSelectedCategory(dictionary[index])}
         >

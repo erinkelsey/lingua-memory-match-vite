@@ -136,9 +136,13 @@ export const Game = ({
   return (
     <div>
       {gameOver ? (
-        <Title order={3}>Congratulations! You Won 🎉</Title>
+        <Title order={3} mb={16}>
+          Congratulations! You Won 🎉
+        </Title>
       ) : (
-        <Title order={3}>Match the translations</Title>
+        <Title order={3} mb={16}>
+          Match the translations
+        </Title>
       )}
       <div className={`card-container cards-${numberOfCards}`}>
         {shuffledTranslations.map((item, index) => (

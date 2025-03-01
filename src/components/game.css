@@ -73,8 +73,13 @@
 
 @media (max-width: 480px) {
   .card-container {
-    gap: 8px;
-    margin: 4px;
+    gap: 5px;
+    margin: 0px;
+  }
+
+  .flip-card {
+    width: 115px;
+    height: 150px;
   }
 }
 

@@ -1,5 +1,5 @@
 .category-title {
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .category-container {
@@ -13,8 +13,8 @@
 
 .category-card {
   cursor: pointer;
-  width: 200px;
-  height: 250px;
+  width: 150px;
+  height: 200px;
   text-align: center;
   justify-content: center;
   transition: transform 0.2s, box-shadow 0.2s;

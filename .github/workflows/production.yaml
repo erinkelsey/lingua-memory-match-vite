@@ -18,6 +18,11 @@ jobs:
       - name: Dependency Install
         run: npm install
 
+      - name: Create .env File
+        run: |
+          touch .env
+          echo VITE_TEXT_TO_SPEECH_API_KEY=${{ secrets.VITE_TEXT_TO_SPEECH_API_KEY }} >> .env
+
       - name: Build App
         run: npm run build
 

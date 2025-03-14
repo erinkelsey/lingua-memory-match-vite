@@ -9,7 +9,6 @@ export const bedroom: SubCategory = {
     { en: 'bedsheets', hu: 'lepedők' },
     { en: 'blanket', hu: 'takaró' },
     { en: 'dresser', hu: 'fiókos szekrény' },
-    { en: 'lamp', hu: 'lámpa' },
     { en: 'mattress', hu: 'matrac' },
     { en: 'pillow', hu: 'párna' },
     { en: 'room', hu: 'szoba' },

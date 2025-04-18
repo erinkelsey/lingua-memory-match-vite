@@ -4,6 +4,10 @@ export const essential: SubCategory = {
   name: 'Essential',
   translations: [
     {
+      en: 'Can I ask you something?',
+      hu: 'Kérdezhetek valamit?',
+    },
+    {
       en: 'Can you speak more slowly?',
       hu: 'Elmondaná lassaban?',
     },
@@ -16,20 +20,13 @@ export const essential: SubCategory = {
       hu: 'Beszél angolul?',
     },
     {
-      en: 'Excuse me (when asking for attention)',
-      hu: 'Elnézést',
+      en: 'excuse me (when asking for attention)',
+      hu: 'elnézést',
     },
+    { en: 'good enough', hu: 'elég jól' },
     {
-      en: 'Goodbye',
-      hu: 'Viszlátlátásra',
-    },
-    {
-      en: 'Hello/Hi',
-      hu: 'Szia/Sziasztok',
-    },
-    {
-      en: 'Help',
-      hu: 'Segítség',
+      en: 'help',
+      hu: 'segítség',
     },
     {
       en: 'How much?',
@@ -51,17 +48,30 @@ export const essential: SubCategory = {
       en: 'I am sorry',
       hu: 'Sajnálom',
     },
+    { en: '(A) little bit', hu: 'egy kicsit' },
     {
-      en: 'No',
-      hu: 'Nem',
+      en: 'no',
+      hu: 'nem',
     },
     {
-      en: 'Please',
-      hu: 'Kérem',
+      en: 'one more time',
+      hu: 'még egyszer',
     },
     {
-      en: 'Thank you',
-      hu: 'Köszönöm',
+      en: 'please',
+      hu: 'kérem',
+    },
+    {
+      en: 'sorry / excuse me (when apologizing)',
+      hu: 'bocsánat / bocs',
+    },
+    {
+      en: 'thank you',
+      hu: 'köszönöm',
+    },
+    {
+      en: 'thank you very much',
+      hu: 'köszönöm szépen',
     },
     {
       en: 'Where is...?',
@@ -72,12 +82,12 @@ export const essential: SubCategory = {
       hu: 'Hol van a W.C.?',
     },
     {
-      en: 'Yes',
-      hu: 'Igen',
+      en: 'yes',
+      hu: 'igen',
     },
     {
-      en: 'You are welcome',
-      hu: 'Szívesen',
+      en: 'you are welcome',
+      hu: 'szívesen',
     },
   ],
 }

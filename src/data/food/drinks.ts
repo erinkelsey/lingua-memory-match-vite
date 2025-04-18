@@ -5,7 +5,12 @@ export const drinks: SubCategory = {
   translations: [
     { en: 'alcohol', hu: 'alkohol' },
     { en: 'beer', hu: 'sör' },
+    { en: 'brandy', hu: 'pálinka' },
+    { en: 'champagne', hu: 'pezsgő' },
+    { en: 'cocktail', hu: 'koktél' },
+    { en: 'cognac', hu: 'konyak' },
     { en: 'coffee', hu: 'kávé' },
+    { en: 'espresso', hu: 'eszpresszó' },
     { en: 'drink', hu: 'ital' },
     { en: 'juice', hu: 'gyümölcslé' },
     { en: 'milk', hu: 'tej' },

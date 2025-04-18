@@ -3,21 +3,23 @@ import { Card, Button, Title, ActionIcon } from '@mantine/core'
 import { MdVolumeUp } from 'react-icons/md'
 
 import { shuffleArray, speak } from 'src/utils'
-import { Translation } from '~/types'
+import { Translation, Form, PRONOUNS } from '~/types'
 
 import './game.css'
 
 interface GameProps {
   translations?: Translation[]
   numberOfCards?: number
-  userLanguage?: string
-  translationLanguage?: string
+  userLanguage?: keyof typeof PRONOUNS
+  translationLanguage?: keyof typeof PRONOUNS
 }
 
 interface Card {
   text: string
   translation: string
   language: string
+  pronoun?: string
+  form?: Form
 }
 
 export const Game = ({
@@ -42,11 +44,14 @@ export const Game = ({
         text: translation[userLanguage],
         translation: translation[translationLanguage],
         language: userLanguage,
+        // pronoun: PRONOUNS[translationLanguage][translation.form as Form],
+        form: translation.form,
       },
       {
         text: translation[translationLanguage],
         translation: translation[userLanguage],
         language: translationLanguage,
+        pronoun: PRONOUNS[translationLanguage][translation.form as Form],
       },
     ])
     setFlipped(Array(cards.length).fill(false))
@@ -172,6 +177,10 @@ export const Game = ({
                   matchedIndices[index] ? 'matched' : ''
                 }`}
               >
+                {item.form && <div className='form-label'>({item.form})</div>}
+                {item.pronoun && (
+                  <div className='pronoun-label'>({item.pronoun})</div>
+                )}
                 <p>{item.text}</p>
                 <ActionIcon
                   className='speak-button'

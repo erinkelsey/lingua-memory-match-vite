@@ -1,0 +1,118 @@
+import { SubCategory, Form, Tense, ConjugationType } from 'src/types'
+
+export const feelings: SubCategory = {
+  name: 'Feelings',
+  translations: [
+    // 'to wish'
+    {
+      en: 'to wish',
+      hu: 'kívánni',
+      verbBase: 'kívánni',
+      tense: Tense.INFINITIVE,
+    },
+    {
+      en: 'I wish',
+      hu: 'kívánok',
+      verbBase: 'kívánni',
+      tense: Tense.PRESENT,
+      form: Form.FIRST_SINGULAR,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    {
+      en: 'you wish',
+      hu: 'kívánsz',
+      verbBase: 'kívánni',
+      tense: Tense.PRESENT,
+      form: Form.SECOND_SINGULAR,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    {
+      en: 'he wishes',
+      hu: 'kíván',
+      verbBase: 'kívánni',
+      tense: Tense.PRESENT,
+      form: Form.THIRD_SINGULAR,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    {
+      en: 'we wish',
+      hu: 'kívánunk',
+      verbBase: 'kívánni',
+      tense: Tense.PRESENT,
+      form: Form.FIRST_PLURAL,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    {
+      en: 'you wish',
+      hu: 'kívántok',
+      verbBase: 'kívánni',
+      tense: Tense.PRESENT,
+      form: Form.SECOND_PLURAL,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    {
+      en: 'they wish',
+      hu: 'kívánnak',
+      verbBase: 'kívánni',
+      tense: Tense.PRESENT,
+      form: Form.THIRD_PLURAL,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    // 'to be glad'
+    {
+      en: 'to be glad',
+      hu: 'örülni',
+      verbBase: 'örülni',
+      tense: Tense.INFINITIVE,
+    },
+    {
+      en: 'I am glad',
+      hu: 'örülök',
+      verbBase: 'örülni',
+      tense: Tense.PRESENT,
+      form: Form.FIRST_SINGULAR,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    {
+      en: 'you are glad',
+      hu: 'örülsz',
+      verbBase: 'örülni',
+      tense: Tense.PRESENT,
+      form: Form.SECOND_SINGULAR,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    {
+      en: 'she is glad',
+      hu: 'örül',
+      verbBase: 'örülni',
+      tense: Tense.PRESENT,
+      form: Form.THIRD_SINGULAR,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    {
+      en: 'we are glad',
+      hu: 'örülünk',
+      verbBase: 'örülni',
+      tense: Tense.PRESENT,
+      form: Form.FIRST_PLURAL,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    {
+      en: 'you are glad',
+      hu: 'örültök',
+      verbBase: 'örülni',
+      tense: Tense.PRESENT,
+      form: Form.SECOND_PLURAL,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    {
+      en: 'they are glad',
+      hu: 'örülnek',
+      verbBase: 'örülni',
+      tense: Tense.PRESENT,
+      form: Form.THIRD_PLURAL,
+      conjugationType: ConjugationType.INDEFINITE,
+    },
+    // 'to thank'
+  ],
+}

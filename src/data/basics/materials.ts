@@ -12,6 +12,7 @@ export const materials: SubCategory = {
     { en: 'leather', hu: 'bőr' },
     { en: 'metal', hu: 'fém' },
     { en: 'paper', hu: 'papír' },
+    { en: 'plant/flower', hu: 'virág' },
     { en: 'plastic', hu: 'műanyag' },
     { en: 'stone', hu: 'kő' },
     { en: 'synthetic', hu: 'szintetikus' },

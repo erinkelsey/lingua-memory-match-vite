@@ -5,6 +5,7 @@ import { useDisclosure } from '@mantine/hooks'
 
 import { Categories, Game, SubCategories, Header, Navbar } from './components'
 import { Category, SubCategory } from './types'
+import { Settings } from './types/settings'
 
 import './App.css'
 
@@ -15,7 +16,18 @@ function App() {
   )
   const [selectedSubCategory, setSelectedSubCategory] =
     useState<SubCategory | null>(null)
-  const [numberOfCards, setNumberOfCards] = useState(6)
+  const [settings, setSettings] = useState<Settings>({
+    numberOfCards: 6,
+  })
+
+  const handleResetSettings = () => {
+    setSettings({
+      numberOfCards: 6,
+      forms: [],
+      tenses: [],
+      conjugationTypes: [],
+    })
+  }
 
   return (
     <AppShell
@@ -36,15 +48,17 @@ function App() {
         setSelectedSubCategory={setSelectedSubCategory}
       />
       <Navbar
-        numberOfCards={numberOfCards}
-        setNumberOfCards={setNumberOfCards}
+        settings={settings}
+        setSettings={setSettings}
+        resetSettings={handleResetSettings}
       />
 
       <AppShell.Main className='main-content'>
         {selectedSubCategory !== null && selectedCategory !== null ? (
           <Game
             translations={selectedSubCategory.translations}
-            numberOfCards={numberOfCards}
+            settings={settings}
+            isVerbs={selectedCategory.name.toUpperCase() === 'VERBS'}
           />
         ) : selectedCategory !== null ? (
           <SubCategories

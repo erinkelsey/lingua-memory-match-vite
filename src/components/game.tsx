@@ -4,12 +4,14 @@ import { MdVolumeUp } from 'react-icons/md'
 
 import { shuffleArray, speak } from 'src/utils'
 import { Translation, Form, PRONOUNS } from '~/types'
+import { Settings } from '~/types/settings'
 
 import './game.css'
 
 interface GameProps {
   translations?: Translation[]
-  numberOfCards?: number
+  settings: Settings
+  isVerbs: boolean
   userLanguage?: keyof typeof PRONOUNS
   translationLanguage?: keyof typeof PRONOUNS
 }
@@ -23,8 +25,9 @@ interface Card {
 }
 
 export const Game = ({
+  settings,
+  isVerbs,
   translations = [],
-  numberOfCards = 6,
   userLanguage = 'en',
   translationLanguage = 'hu',
 }: GameProps) => {
@@ -34,11 +37,19 @@ export const Game = ({
   const [matchedIndices, setMatchedIndices] = useState<boolean[]>([])
   const [numMatched, setNumMatched] = useState(0)
   const [gameOver, setGameOver] = useState(false)
-  const numWords = numberOfCards / 2
+  const numWords = settings.numberOfCards / 2
 
   const initializeGame = () => {
     const allShuffledTranslations = shuffleArray(translations)
-    const selectedTranslations = allShuffledTranslations.slice(0, numWords)
+    const selectedTranslations = allShuffledTranslations
+      .filter((value) => {
+        if (!isVerbs || !settings.forms || settings.forms.length === 0)
+          return true
+
+        const form = value.form as Form
+        return settings.forms.includes(form)
+      })
+      .slice(0, numWords)
     const cards = selectedTranslations.flatMap((translation) => [
       {
         text: translation[userLanguage],
@@ -68,7 +79,7 @@ export const Game = ({
 
   useEffect(() => {
     initializeGame()
-  }, [numberOfCards])
+  }, [settings])
 
   const shuffle = () => {
     setFlippedIndices([])
@@ -149,7 +160,7 @@ export const Game = ({
           Match the translations
         </Title>
       )}
-      <div className={`card-container cards-${numberOfCards}`}>
+      <div className={`card-container cards-${settings.numberOfCards}`}>
         {shuffledTranslations.map((item, index) => (
           <div
             key={index}

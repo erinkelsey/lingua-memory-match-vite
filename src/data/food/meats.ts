@@ -5,7 +5,7 @@ export const meats: SubCategory = {
   translations: [
     { en: 'bacon', hu: 'szalonna' },
     { en: 'beef', hu: 'marhahús' },
-    { en: 'chicken', hu: 'csirkehús' },
+    { en: 'chicken', hu: 'csirke' },
     { en: 'egg', hu: 'tojás' },
     { en: 'fish', hu: 'hal' },
     { en: 'ham', hu: 'sonka' },

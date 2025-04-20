@@ -177,7 +177,7 @@ export const Game = ({
                   matchedIndices[index] ? 'matched' : ''
                 }`}
               >
-                {item.form && <div className='form-label'>({item.form})</div>}
+                {item.form && <div className='form-label'>{item.form}</div>}
                 {item.pronoun && (
                   <div className='pronoun-label'>({item.pronoun})</div>
                 )}

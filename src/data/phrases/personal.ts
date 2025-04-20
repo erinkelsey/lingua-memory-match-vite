@@ -19,6 +19,11 @@ export const personalQuestions: SubCategory = {
       form: Form.SECOND_SINGULAR,
     },
     {
+      en: 'What is your profession?',
+      hu: 'Mi a foglalkozása?',
+      form: Form.THIRD_SINGULAR,
+    },
+    {
       en: 'What languages do you speak?',
       hu: 'Milyen nyelven beszélsz?',
       form: Form.SECOND_SINGULAR,
